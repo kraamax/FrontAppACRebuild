@@ -1,0 +1,91 @@
+<header>
+  <div class="container">
+      <h2>Docente</h2>
+<br>
+  </div>
+</header>
+<body >
+  <div class="container">
+    <form [formGroup]="formDocente">
+      <div class="row">
+          <div class="col-lg-2">
+                <div class="form-group">
+                  <mat-form-field>
+                    <mat-label>Nombres</mat-label>
+                    <input
+                      matInput
+                      type="text"
+                      formControlName="nombres"
+                      id="nombres"
+                      required
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="form-group" >
+                  <mat-form-field>
+                    <mat-label>Identificación</mat-label>
+                    <input
+                      matInput
+                      type="string"
+                      formControlName="identificacion"
+                      id="id"
+                      required
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="form-group" >
+                  <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input
+                      matInput
+                      type="email"
+                      formControlName="email"
+                      id="email"
+                      required
+                    />
+                  </mat-form-field>
+                </div>
+          </div>
+          <div class="col-lg-2">
+
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group" >
+              <mat-form-field>
+                <mat-label>Apellidos</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  formControlName="apellidos"
+                  id="apellidos"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div class="form-group" >
+              <mat-form-field>
+                <mat-label>Sexo</mat-label>
+                <mat-select formControlName="sexo"  id="sexo">
+                    <mat-option value="Femenino">Femenino</mat-option>
+                    <mat-option value="Masculino">Masculino</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="form-group" >
+              <mat-form-field>
+                <mat-label>Departamento</mat-label>
+                <mat-select formControlName="departamentoId"  id="departamento">
+                  <mat-option *ngFor="let dpto of dptos" value="{{dpto.id}}">{{dpto.nombreDpto}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+                <br>
+                <div class="form-group" style="text-align: right;">
+                  <button (click)="save()" style="vertical-align: bottom;" class="btn btn-primary">Guardar</button>
+                </div>
+          </div>
+      </div>
+    </form>
+
+  </div>
+</body>

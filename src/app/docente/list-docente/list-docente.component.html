@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+    <!-- Bootstrap CSS CDN -->
+    <!-- Our Custom CSS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </head>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h1>Listado Docentes</h1>
+    </div>
+    <div class="col-lg-4">
+      <button
+        class="btn btn-primary"
+        style="color: white;"
+        routerLink="/addDocente"
+      >
+        Nuevo Docente
+      </button>
+    </div>
+  </div>
+    <br>
+
+    <div class="row">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+              <tr>
+                <th>Identificacion</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Acciones</th>
+              </tr>
+              <tr *ngFor="let d of docentes">
+                  <td>{{d.identificacion}}</td>
+                  <td>{{d.nombres}}</td>
+                  <td>{{d.apellidos}}</td>
+                  <td>{{d.email}}</td>
+
+                  <td><a routerLink="">ver Seguimiento</a></td>
+                <!-- <td><a routerLink="" (click)="goToFollowUpSee(f.idFollowUp)">ver Seguimiento</a></td> -->
+              </tr>
+            </table>
+          </div>
+    </div>
+</div>
+</html>

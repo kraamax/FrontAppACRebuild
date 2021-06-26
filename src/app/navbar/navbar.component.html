@@ -1,0 +1,149 @@
+
+
+<header>
+  <nav
+    class="
+      navbar navbar-expand-sm navbar-toggleable-sm navbar-light
+      border-bottom
+      box-shadow
+      mb-3
+    "
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">
+        Actividades Complementarias</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+        [ngClass]="{ show: isExpanded }"
+        style="background-color: green; z-index: 10"
+      >
+        <ul class="navbar-nav flex-grow">
+          <div>
+            <li
+              class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <a class="nav-link" style="color: white" [routerLink]="['/']"
+                >Inicio</a
+              >
+            </li>
+          </div>
+          <li *ngIf="role!=null"
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link" style="color: white" [routerLink]="['/addDocente']"
+              >Docente</a
+            >
+          </li>
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link" style="color: white" [routerLink]="['/addJefeDpto']"
+              >JefeDpto</a
+            >
+          </li>
+          <!-- <div>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a
+                id="docente"
+                class="nav-link"
+                style="color: white"
+                [routerLink]="['/docenteList']"
+                >Docentes</a
+              >
+            </li>
+          </div>
+          <div>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a
+                class="nav-link"
+                style="color: white"
+                [routerLink]="['/actForPlanList']"
+                >Plan de acción</a
+              >
+            </li>
+          </div>
+          <div>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a
+                class="nav-link"
+                style="color: white"
+                [routerLink]="['/planList']"
+                >Descripción de acciones</a
+              >
+            </li>
+          </div>
+          <div>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a
+                id="actividades"
+                class="nav-link"
+                style="color: white"
+                [routerLink]="['/ActividadList']"
+                >Actividades
+              </a>
+            </li>
+          </div>
+          <div>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a
+                id="jefeDpto"
+                class="nav-link"
+                style="color: white"
+                [routerLink]="['/jefeList']"
+                >Jefe Departamento
+              </a>
+            </li>
+          </div>
+          <div>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a
+                id="gestionPlataforma"
+                class="nav-link"
+                style="color: white"
+                [routerLink]="['/plazoActivacion']"
+                >Gestión de plataforma
+              </a>
+            </li>
+          </div>
+          <div>
+            <li
+              class="nav-item"
+              (click)="logout()"
+              id="btn-logout"
+              [routerLinkActive]="['link-active']"
+            >
+              <a class="nav-link" style="color: white" [routerLink]="['/']"
+                >Cerrar Sesión
+              </a>
+            </li>
+          </div> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="footer">
+  <p>
+    © 2017 - Universidad Popular del Cesar Sede Sabanas Diagonal 21 No. 29-56
+    Sabanas del Valle –Valledupar- Cesar -Colombia. Institución sujeta a
+    inspección y vigilancia por el Ministerio de Educación Nacional
+  </p>
+</div>
