@@ -16,9 +16,14 @@ export class AuthService {
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string ) {
   }
   login(loginModel):Observable<any>{
-    return this.http.post(this.baseUrl+'/api/auth/login',loginModel,httpOptions);
+    return this.http.post(this.baseUrl+'/api/Auth/login',loginModel,httpOptions);
   }
   getRol(){
     this.currentRole.next(localStorage.getItem('role'));
+   }
+   setUserLoggedIn(token, role){
+    localStorage.setItem('token',token);
+    localStorage.setItem('role',role);
+
    }
 }
