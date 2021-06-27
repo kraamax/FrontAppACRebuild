@@ -17,5 +17,8 @@ export class JefeDptoService {
   registerJefeDpto(jefeDpto:JefeDpto):Observable<any>{
     return this.http.post(this.baseUrl+'/api/jefeDpto',jefeDpto,httpOptions);
   }
+  getAllJefeDpto():Observable<any>{
+    return this.http.get(this.baseUrl+'/api/JefeDpto/GetAll',httpOptions);
+  }
 
 }

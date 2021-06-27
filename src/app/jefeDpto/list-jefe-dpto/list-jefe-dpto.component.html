@@ -1,1 +1,39 @@
-<p>list-jefe-dpto works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h1>Listado Jefes Departamento</h1>
+    </div>
+    <div class="col-lg-4">
+      <button
+        class="btn btn-primary"
+        style="color: white;"
+        routerLink="/addJefeDpto"
+      >
+        Nuevo Jefe Dpto
+      </button>
+    </div>
+  </div>
+    <br>
+
+    <div class="row">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+              <tr>
+                <th>Identificacion</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Acciones</th>
+              </tr>
+              <tr *ngFor="let j of jefes">
+                  <td>{{j.identificacion}}</td>
+                  <td>{{j.nombres}}</td>
+                  <td>{{j.apellidos}}</td>
+                  <td>{{j.email}}</td>
+                  <td><a routerLink="">ver Seguimiento</a></td>
+                <!-- <td><a routerLink="" (click)="goToFollowUpSee(f.idFollowUp)">ver Seguimiento</a></td> -->
+              </tr>
+            </table>
+          </div>
+    </div>
+</div>

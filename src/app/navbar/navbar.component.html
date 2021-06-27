@@ -41,22 +41,31 @@
               >
             </li>
           </div>
+          <li *ngIf="role!=null && role!='Docente'"
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link" style="color: white" [routerLink]="['/listDocente']"
+              >Docente</a
+            >
+          </li>
+          <li *ngIf="role!=null && role!='Docente'"
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link" style="color: white" [routerLink]="['/listJefeDpto']"
+              >JefeDpto</a
+            >
+          </li>
           <li *ngIf="role!=null"
             class="nav-item"
             [routerLinkActive]="['link-active']"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            <a class="nav-link" style="color: white" [routerLink]="['/addDocente']"
-              >Docente</a
-            >
-          </li>
-          <li
-            class="nav-item"
-            [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <a class="nav-link" style="color: white" [routerLink]="['/addJefeDpto']"
-              >JefeDpto</a
+            <a class="nav-link" style="color: white" (click)="logOut()"
+              >Cerrar Sesión</a
             >
           </li>
           <!-- <div>

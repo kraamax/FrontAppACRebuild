@@ -18,12 +18,18 @@ export class AuthService {
   login(loginModel):Observable<any>{
     return this.http.post(this.baseUrl+'/api/Auth/login',loginModel,httpOptions);
   }
-  getRol(){
-    this.currentRole.next(localStorage.getItem('role'));
+  setRol(){
+    console.log('aca');
+    console.log(localStorage.getItem('role'));
+     this.currentRole.next(localStorage.getItem('role'));
    }
    setUserLoggedIn(token, role){
     localStorage.setItem('token',token);
     localStorage.setItem('role',role);
-
+    this.setRol();
+   }
+   logOut(){
+      localStorage.clear();
+      this.setRol();
    }
 }

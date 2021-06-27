@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JefeDptoService } from 'src/app/services/jefe-dpto.service';
 
 @Component({
   selector: 'app-list-jefe-dpto',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListJefeDptoComponent implements OnInit {
 
-  constructor() { }
+  jefes:[];
+  constructor(private jefeDptoService:JefeDptoService) { }
 
   ngOnInit(): void {
+    this.jefeDptoService.getAllJefeDpto().subscribe(res=>this.jefes=res);
   }
 
 }
