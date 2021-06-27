@@ -20,5 +20,8 @@ export class JefeDptoService {
   getAllJefeDpto():Observable<any>{
     return this.http.get(this.baseUrl+'/api/JefeDpto/GetAll',httpOptions);
   }
+  getById(id):Observable<any>{
+    return this.http.get(this.baseUrl+'/api/JefeDpto/GetByIdentificacion/'+id,httpOptions);
+  }
 
 }

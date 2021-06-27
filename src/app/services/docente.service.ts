@@ -20,4 +20,10 @@ export class DocenteService {
   GetAll():Observable<any>{
     return this.http.get(this.baseUrl+'/api/docente/GetAll',httpOptions);
   }
+  GetByDpto(dptoId):Observable<any>{
+    return this.http.get(this.baseUrl+'/api/docente/GetByDpto/'+dptoId,httpOptions);
+  }
+  GetByIdentificacion(id):Observable<any>{
+    return this.http.get(this.baseUrl+'/api/Docente/GetByIdentificacion/'+id,httpOptions);
+  }
 }

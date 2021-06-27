@@ -19,8 +19,6 @@ export class AuthService {
     return this.http.post(this.baseUrl+'/api/Auth/login',loginModel,httpOptions);
   }
   setRol(){
-    console.log('aca');
-    console.log(localStorage.getItem('role'));
      this.currentRole.next(localStorage.getItem('role'));
    }
    setUserLoggedIn(token, role){
