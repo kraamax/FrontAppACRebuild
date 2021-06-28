@@ -11,6 +11,7 @@ import { AddActividadComponent } from './Actividad/add-actividad/add-actividad.c
 import { ListPlanAccionComponent } from './planAccion/list-plan-accion/list-plan-accion.component';
 import { HomeComponent } from './home/home.component';
 import { AddPlanAccionComponent } from './planAccion/add-plan-accion/add-plan-accion.component';
+import { AddAccionesRealizadasComponent } from './planAccion/add-acciones-realizadas/add-acciones-realizadas.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,8 @@ const routes: Routes = [
   { path: 'addActividad', component: AddActividadComponent },
   { path: 'listPlan', component: ListPlanAccionComponent },
   { path: 'addPlan', component: AddPlanAccionComponent },
+  { path: 'plan/addAccionesRealizadas', component: AddAccionesRealizadasComponent },
+
 
 
 

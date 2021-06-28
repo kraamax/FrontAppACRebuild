@@ -23,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddPlanAccionComponent } from './planAccion/add-plan-accion/add-plan-accion.component';
 import { ListPlanAccionComponent } from './planAccion/list-plan-accion/list-plan-accion.component';
 import { HomeComponent } from './home/home.component';
+import { AddAccionesRealizadasComponent } from './planAccion/add-acciones-realizadas/add-acciones-realizadas.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     AddPlanAccionComponent,
     ListPlanAccionComponent,
-    HomeComponent
+    HomeComponent,
+    AddAccionesRealizadasComponent
   ],
   imports: [
     BrowserModule,

@@ -24,4 +24,8 @@ export class ListPlanAccionComponent implements OnInit {
   gotToAddPlan(id){
     this.router.navigate(['/addPlan'], { state: { id: id} });
   }
+  gotToRegisterRealizadas(id){
+    this.router.navigate(['/plan/addAccionesRealizadas'], { state: { id: id} });
+  }
+
 }

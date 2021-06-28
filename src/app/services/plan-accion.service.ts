@@ -17,4 +17,7 @@ export class PlanAccionService {
   registerPlan(plan:PlanAccion):Observable<any>{
     return this.http.post(this.baseUrl+'/api/PlanAccion',plan,httpOptions);
   }
+  getByActividad(id):Observable<any>{
+    return this.http.get(this.baseUrl+'/api/PlanAccion/GetByActividad/'+id,httpOptions);
+  }
 }

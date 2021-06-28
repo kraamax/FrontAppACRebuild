@@ -36,6 +36,8 @@ export class AddPlanAccionComponent implements OnInit {
   addAccion(){
     var item=new ItemPlan();
     item.accionPlaneada_Descripcion=this.descripcion;
+    item.accionRealizada_Descripcion="";
+    item.accionRealizada_evidencia_Ruta="";
     if(!this.alreadyExist(this.acciones,item)){
       this.acciones.push(item);
     };
@@ -47,6 +49,7 @@ export class AddPlanAccionComponent implements OnInit {
 
   eliminarAccion(item){
     this.acciones=this.acciones.filter(x => x != item);
+    var  a:string="";
   }
   registrarPlan(){
     var plan=new PlanAccion();
@@ -56,6 +59,9 @@ export class AddPlanAccionComponent implements OnInit {
     this.planAccionService.registerPlan(plan).subscribe(res=>{
       var mensaje=res.message.replace("Error: ",'');
       this.toastr.show(res.messageType,mensaje,res.messageType);
+      if(mensaje.includes("registrado correctamente")){
+        this.router.navigateByUrl("/listPlan");
+      }
       },
       error=>{
         error.error.errors.forEach(element => {
