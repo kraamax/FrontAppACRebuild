@@ -17,4 +17,7 @@ export class ActividadService {
   registerActividad(actividad:Actividad):Observable<any>{
     return this.http.post(this.baseUrl+'/api/Actividad',actividad,httpOptions);
   }
+  getByDocente(id):Observable<any>{
+    return this.http.get(this.baseUrl+'/api/Actividad/GetByDocente/'+id,httpOptions);
+  }
 }

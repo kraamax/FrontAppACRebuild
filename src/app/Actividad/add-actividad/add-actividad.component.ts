@@ -36,13 +36,19 @@ export class AddActividadComponent implements OnInit {
 
   ngOnInit(): void {
     this.initilizeFormGroups();
+    this.getActividades();
     this.identificacionJefeDpto=localStorage.getItem("token");
-
     this.docenteService.GetByIdentificacion(this.identificacionDocente).subscribe(res=>
                                                                           this.setValueFormData(res));
     this.tipoActividadService.getAll().subscribe(res=>this.tipos=res);
   }
 
+  private getActividades(){
+    this.actividadService.getByDocente(this.identificacionDocente).subscribe(res=>{
+      console.log(res);
+      this.actividades=res;
+    });
+  }
   private setValueFormData(docente:Docente){
     this.formData.setValue({
       identificacion: docente.identificacion,
@@ -67,7 +73,7 @@ export class AddActividadComponent implements OnInit {
     actividad.identificacionResponsable=this.identificacionDocente;
     this.actividadService.registerActividad(actividad).subscribe(res=>{
       this.toastr.show(res.messageType,res.message, res.messageType);
-      console.log(res);
+      this.getActividades();
     },
      error=>{
        error.error.errors.forEach(element => {

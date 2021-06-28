@@ -104,20 +104,20 @@
               >
                 <thead>
                   <tr>
-                    <th>Identificación Docente</th>
-                    <th>Tipo de actividad</th>
-                    <th>Horas Asignadas</th>
+                    <th>Tipo</th>
+                    <th>Horas</th>
                     <th>Estado</th>
-                    <th>Eliminar</th>
+                    <th>Fecha Asignacion</th>
+                    <!-- <th>Eliminar</th> -->
                   </tr>
                 </thead>
 
                 <tbody>
                   <tr *ngFor="let c of actividades">
-                    <td>{{ c.docente.idDocente }}</td>
-                    <td>{{ c.nombreActividad }}</td>
+                    <td>{{ c.tipoActividad.nombreActividad }}</td>
                     <td>{{ c.horasAsignadas }}</td>
                     <td>{{c.estado}}</td>
+                    <td>{{c.fechaAsignacion.split("T")[0]}}</td>
                     <!-- <td *ngIf="c.estado==='Asignada'"><button (click)="Eliminar(c.idActividad)" class="btn" style="color: white;" >Eliminar</button></td> -->
                   </tr>
                 </tbody>
