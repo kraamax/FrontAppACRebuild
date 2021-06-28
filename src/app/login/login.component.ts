@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       console.log(res);
       if(res.loggedIn){
         this.authService.setUserLoggedIn(res.token, res.tipo);
-        this.router.navigateByUrl('/listDocente');
+        this.router.navigateByUrl('/');
       }else{
         this.toastr.error("Credenciales incorrectas");
       }

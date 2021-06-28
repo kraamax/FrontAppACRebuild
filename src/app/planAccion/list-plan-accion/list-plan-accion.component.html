@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Consulta Plan de Acción</h2>
+  <table class="table">
+      <tr>
+          <th>Actividad</th>
+          <th>horas</th>
+          <th>fecha Asignacion</th>
+          <th>Estado</th>
+          <th></th>
+
+      </tr>
+      <tr *ngFor="let ac of actividades">
+          <td>{{ac.tipoActividad.nombreActividad}}</td>
+          <td>{{ac.horasAsignadas}}</td>
+          <td>{{ac.fechaAsignacion}}</td>
+          <td>{{ac.estado}}</td>
+          <td *ngIf="ac.estado==='Asignada'"><a routerLink="" (click)="gotToAddPlan(ac.id)">Registrar Plan</a></td>
+          <!-- <td *ngIf="!(ac.estado==='Asignada')"><a routerLink="/planSee/{{ac.idActividad}}">Ver</a></td> -->
+      </tr>
+  </table>
+</div>

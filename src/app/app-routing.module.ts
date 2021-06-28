@@ -8,8 +8,12 @@ import { ListDocenteComponent } from './docente/list-docente/list-docente.compon
 import { ListJefeDptoComponent } from './jefeDpto/list-jefe-dpto/list-jefe-dpto.component';
 import { AddPlazoComponent } from './plazo_apertura/add-plazo/add-plazo.component';
 import { AddActividadComponent } from './Actividad/add-actividad/add-actividad.component';
+import { ListPlanAccionComponent } from './planAccion/list-plan-accion/list-plan-accion.component';
+import { HomeComponent } from './home/home.component';
+import { AddPlanAccionComponent } from './planAccion/add-plan-accion/add-plan-accion.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'addDocente', component: AddDocenteComponent },
   { path: 'addJefeDpto', component: AddJefeDptoComponent },
   { path: 'login', component: LoginComponent },
@@ -17,6 +21,8 @@ const routes: Routes = [
   { path: 'listJefeDpto', component: ListJefeDptoComponent },
   { path: 'addPlazo', component: AddPlazoComponent },
   { path: 'addActividad', component: AddActividadComponent },
+  { path: 'listPlan', component: ListPlanAccionComponent },
+  { path: 'addPlan', component: AddPlanAccionComponent },
 
 
 

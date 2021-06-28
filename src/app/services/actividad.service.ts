@@ -20,4 +20,8 @@ export class ActividadService {
   getByDocente(id):Observable<any>{
     return this.http.get(this.baseUrl+'/api/Actividad/GetByDocente/'+id,httpOptions);
   }
+
+  get(id):Observable<any>{
+    return this.http.get(this.baseUrl+'/api/Actividad/Get/'+id,httpOptions);
+  }
 }

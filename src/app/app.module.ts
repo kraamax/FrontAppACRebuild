@@ -20,6 +20,9 @@ import { ListDocenteComponent } from './docente/list-docente/list-docente.compon
 import { ListJefeDptoComponent } from './jefeDpto/list-jefe-dpto/list-jefe-dpto.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddPlanAccionComponent } from './planAccion/add-plan-accion/add-plan-accion.component';
+import { ListPlanAccionComponent } from './planAccion/list-plan-accion/list-plan-accion.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     ListDocenteComponent,
     ListJefeDptoComponent,
-    LoginComponent
+    LoginComponent,
+    AddPlanAccionComponent,
+    ListPlanAccionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

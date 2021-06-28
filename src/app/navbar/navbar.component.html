@@ -68,6 +68,15 @@
           >Plazo Apertura</a
             >
           </li>
+          <li *ngIf="role=='Docente'"
+          class="nav-item"
+          [routerLinkActive]="['link-active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+        <a class="nav-link" style="color: white" [routerLink]="['/listPlan']"
+        >Plan Accion</a
+          >
+        </li>
           <li *ngIf="role!=null"
             class="nav-item"
             [routerLinkActive]="['link-active']"
