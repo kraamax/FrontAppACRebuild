@@ -1,1 +1,60 @@
-<p>add-plan-accion works!</p>
+<div class="container">
+  <!-- <div class="row">
+    <div class="col-lg-3">
+      <h3><b>Actividad: </b> {{actividad.tipoActividad.nombreActividad}}</h3>
+    </div>
+    <div class="col-lg-3">
+      <h3><b>Horas Asignadas: </b> {{actividad.horasAsignadas}}</h3>
+    </div>
+    <div class="col-lg-3">
+      <h3><b>Fecha Asig: </b> {{actividad.fechaAsignacion.split("T")[0]}}</h3>
+    </div>
+  </div> -->
+  <br>
+  <div class="row">
+    <div class="col-lg-6">
+      <h2>Nueva Acción</h2>
+      <div class="form-group">
+        <label for="Descripcion">Descripción</label>
+        <textarea
+          class="form-control rounded-0"
+          name="descripcion"
+          id="textarea"
+          cols="30"
+          rows="10"
+          [(ngModel)]="descripcion"
+        ></textarea>
+      </div>
+      <div class="form-group" style="text-align: right;">
+        <button class="btn btn-primary" id="btnBuscar" (click)="addAccion()">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <h2>Plan de Acción</h2>
+      <br />
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-bordered table-striped mb-0">
+          <tr>
+            <th class="masAncho">Acción</th>
+            <th class="normal">Eliminar</th>
+          </tr>
+          <tr *ngFor="let action of acciones">
+            <td class="masAncho">{{ action.accionPlaneada_Descripcion}}</td>
+            <td class="normal">
+              <button  class="btn btn-primary" (click)="eliminarAccion(action)">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br />
+      <div class="form-group" style="text-align: right;">
+        <button class="btn btn-primary" id="btnAdd" (click)="registrarPlan()">
+          Registrar Plan
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
