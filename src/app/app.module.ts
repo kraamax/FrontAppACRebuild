@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr'
@@ -24,6 +26,7 @@ import { AddPlanAccionComponent } from './planAccion/add-plan-accion/add-plan-ac
 import { ListPlanAccionComponent } from './planAccion/list-plan-accion/list-plan-accion.component';
 import { HomeComponent } from './home/home.component';
 import { AddAccionesRealizadasComponent } from './planAccion/add-acciones-realizadas/add-acciones-realizadas.component';
+import { DialogAddAccionRealizadaComponent } from './planAccion/dialog-add-accion-realizada/dialog-add-accion-realizada.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { AddAccionesRealizadasComponent } from './planAccion/add-acciones-realiz
     AddPlanAccionComponent,
     ListPlanAccionComponent,
     HomeComponent,
-    AddAccionesRealizadasComponent
+    AddAccionesRealizadasComponent,
+    DialogAddAccionRealizadaComponent
   ],
   imports: [
     BrowserModule,
@@ -50,12 +54,16 @@ import { AddAccionesRealizadasComponent } from './planAccion/add-acciones-realiz
     ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
+    MatDialogModule,
     HttpClientModule,
     ToastrModule.forRoot({
       progressBar:true,
       closeButton:true
     }),
     NgbModule,
+  ],
+  entryComponents: [
+    DialogAddAccionRealizadaComponent
   ],
 
   providers: [

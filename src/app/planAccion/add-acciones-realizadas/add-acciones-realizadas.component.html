@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <div class="container">
   <h2>Plan de Acción</h2>
   <br />
@@ -9,6 +10,7 @@
           class="form-control"
           placeholder="Nombres"
           type="text"
+          value="{{plan.actividad.tipoActividad.nombreActividad}}"
           readonly
         />
       </div>
@@ -20,6 +22,7 @@
           class="form-control"
           placeholder="Nombres"
           type="text"
+          value="{{plan.actividad.horasAsignadas}}"
           readonly
         />
       </div>
@@ -30,6 +33,7 @@
         <input
           class="form-control"
           placeholder="Nombres"
+          value="{{plan.actividad.fechaAsignacion}}"
           type="text"
           readonly
         />
@@ -42,6 +46,7 @@
           type="text"
           class="form-control"
           placeholder="Nombres"
+          value="{{plan.actividad.estado}}"
           readonly
         />
       </div>
@@ -53,7 +58,7 @@
           type="text"
           class="form-control"
           placeholder="Porcentaje"
-          readonly
+            readonly
         />
       </div>
     </div>
@@ -67,40 +72,37 @@
         <th></th>
 
       </tr>
-      <tr *ngFor="let action of plan.acciones">
-        <td class="masAncho">{{ action.accionPlaneada }}</td>
+      <tr *ngFor="let action of plan.items">
+        <td class="masAncho">{{ action.accionPlaneada.descripcion }}</td>
         <td
           style="vertical-align: middle;"
           class="masAncho"
-          *ngIf="(action.accionRealizada === '')&&!(plan.actividad.estado==='Terminada') && !(plan.actividad.estado==='No Terminada')"
+          *ngIf="(action.accionRealizada.descripcion === '')&&!(plan.actividad.estado==='Terminada') && !(plan.actividad.estado==='No Terminada')"
         >
           <button
             class="btn btn-primary"
-            (click)="addAccionRealizada(action.idAccion)"
+            (click)="openDialog(action.id, action.accionPlaneada.descripcion)"
           >
             Registrar
           </button>
         </td>
-        <td class="masAncho" *ngIf="!(action.accionRealizada === '')">
-          {{ action.accionRealizada }}
+        <td class="masAncho" *ngIf="!(action.accionRealizada.descripcion === '')">
+          {{ action.accionRealizada.descripcion }}
         </td>
-        <td *ngIf="!(action.evidencia === '')" style="vertical-align: middle;"><button class="btn btn-primary"  (click)="createImgPath(action.evidencia)">ver</button></td>
+        <td *ngIf="!(action.accionRealizada.evidencia.ruta === '')" style="vertical-align: middle;"><i class="material-icons">attachment</i> <a href="">{{action.accionRealizada.evidencia.ruta}}</a></td>
 
         <td
           style="vertical-align: middle;"
-          *ngIf="!(action.accionRealizada === '') && !(plan.actividad.estado==='Terminada') && !(plan.actividad.estado==='No Terminada') "
+          *ngIf="!(action.accionRealizada.descripcion === '') && !(plan.actividad.estado==='Terminada') && !(plan.actividad.estado==='No Terminada') "
         >
-          <button
+          <!-- <button
             class="btn btn-primary"
-            (click)="addAccionRealizada(action.idAccion)"
+            (click)="addAccionRealizada(action.id)"
           >
             Editar
-          </button>
+          </button> -->
         </td>
       </tr>
     </table>
     <br>
   </div>
-    <div class="form-group" style="text-align: right;" *ngIf="!(plan.actividad.estado==='Terminada') && !(plan.actividad.estado==='No Terminada') ">
-      <button class="btn btn-primary" (click)="finalizar()">Finalizar</button>
-    </div>
