@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Actividad } from 'src/app/Models/actividad';
 import { ItemPlan } from 'src/app/Models/item-plan';
 import { PlanAccionService } from 'src/app/services/plan-accion.service';
+import { ToastAlertService } from 'src/app/services/toast-alert.service';
 import { DialogAddAccionRealizadaComponent } from '../dialog-add-accion-realizada/dialog-add-accion-realizada.component';
 
 @Component({
@@ -19,6 +20,7 @@ export class AddAccionesRealizadasComponent implements OnInit {
   ruta;
   constructor(private planAccionService:PlanAccionService,
               private router:Router,
+              private toastr:ToastAlertService,
               public dialog: MatDialog) {
     try {
       this.actividadId = this.router.getCurrentNavigation().extras.state.id;
@@ -50,7 +52,16 @@ export class AddAccionesRealizadasComponent implements OnInit {
   }
   modifyItem(item:ItemPlan){
 
-    this.planAccionService.modifyItem(item).subscribe(res=>{console.log(res)});
+    this.planAccionService.modifyItem(item).subscribe(res=>{
+      console.log(res);
+      this.toastr.show(res.messageType,res.message,res.messageType);
+      this.planAccionService.getByActividad(this.actividadId).subscribe(res=>this.plan=res);
+    },error=>{
+      error.error.errors.forEach(element => {
+        this.toastr.error(element.message);
+      });
+    }
+    );
   }
   inicializarPlan(){
     this.plan={

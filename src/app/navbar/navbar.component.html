@@ -31,13 +31,13 @@
       >
         <ul class="navbar-nav flex-grow">
           <div>
-            <li
+            <li  *ngIf="role==null"
               class="nav-item"
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }"
             >
-              <a class="nav-link" style="color: white" [routerLink]="['/']"
-                >Inicio</a
+              <a class="nav-link" style="color: white" [routerLink]="['/login']"
+                >Login</a
               >
             </li>
           </div>

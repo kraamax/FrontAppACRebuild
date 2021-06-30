@@ -5,7 +5,7 @@
     <textarea
       class="form-control rounded-0"
       name="descripcion"
-      id="textarea"
+      id="descripcion"
       cols="30"
       rows="10"
       [(ngModel)]="data.descripcion"
@@ -17,6 +17,7 @@
       class="form-control"
       placeholder="Adjunte archivo"
       type="text"
+      id="evidencia"
       [(ngModel)]="data.ruta"
     />
   </div>
@@ -28,7 +29,7 @@
     </div>
     <div class="col-lg-5"></div>
     <div class="col-lg-1">
-      <button   class="btn btn-primary" [mat-dialog-close]="data" cdkFocusInitial>Guardar</button>
+      <button   class="btn btn-primary" id="btn-guardar" [mat-dialog-close]="data" cdkFocusInitial>Guardar</button>
     </div>
   </div>
 </div>

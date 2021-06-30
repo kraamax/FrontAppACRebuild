@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Docente } from 'src/app/Models/docente';
+import { AuthService } from 'src/app/services/auth.service';
 import { DepartamentoService } from 'src/app/services/departamento.service';
 import { DocenteService } from 'src/app/services/docente.service';
+import { JefeDptoService } from 'src/app/services/jefe-dpto.service';
 
 @Component({
   selector: 'app-add-docente',
@@ -14,25 +16,33 @@ export class AddDocenteComponent implements OnInit {
 
   formDocente:FormGroup;
   dptos:[];
+  identificacionJefeDpto;
+  departamentoId:number;
   constructor(private formBuilder:FormBuilder,
+              private authService:AuthService,
               private departamentoService:DepartamentoService,
               private docenteService:DocenteService,
+              private jefeDptoService:JefeDptoService,
               private toastr:ToastrService) { }
 
   ngOnInit(): void {
+    this.departamentoId=0;
+    this.authService.validateLogin();
+    this.identificacionJefeDpto=localStorage.getItem("token");
+    this.jefeDptoService.getById(this.identificacionJefeDpto).subscribe(res=>this.departamentoId=res.departamento.id);
     this.formDocente= this.formBuilder.group({
       identificacion:[''],
       nombres:[''],
       apellidos:[''],
       email:['',[Validators.email]],
       sexo:[''],
-      departamentoId:[0],
     });
     this.departamentoService.getDepartamentos().subscribe(res=>this.dptos=res);
   }
 
   save(){
     var docente=new Docente(this.formDocente.value);
+    docente.departamentoId=this.departamentoId;
     console.log(docente);
     this.docenteService.postDocente(docente).subscribe(res=>{
       this.toastr.success(res.mensaje, 'Exito');
