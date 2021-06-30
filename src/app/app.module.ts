@@ -57,7 +57,6 @@ import { DialogAddAccionRealizadaComponent } from './planAccion/dialog-add-accio
     MatDialogModule,
     HttpClientModule,
     ToastrModule.forRoot({
-      progressBar:true,
       closeButton:true
     }),
     NgbModule,

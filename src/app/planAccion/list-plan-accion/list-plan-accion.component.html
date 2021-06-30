@@ -15,7 +15,7 @@
           <td>{{ac.fechaAsignacion}}</td>
           <td>{{ac.estado}}</td>
           <td *ngIf="ac.estado==='Asignada'"><a routerLink="" (click)="gotToAddPlan(ac.id)">Registrar Plan</a></td>
-          <td *ngIf="ac.estado==='Planeada'"><a routerLink="" (click)="gotToRegisterRealizadas(ac.id)">Acciones Realizas</a></td>
+          <td *ngIf="ac.estado==='Planeada'"><a routerLink="" (click)="gotToRegisterRealizadas(ac.id)">Acciones Realizadas</a></td>
 
           <!-- <td *ngIf="!(ac.estado==='Asignada')"><a routerLink="/planSee/{{ac.idActividad}}">Ver</a></td> -->
       </tr>

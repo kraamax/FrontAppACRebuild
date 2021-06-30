@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { DepartamentoService } from 'src/app/services/departamento.service';
 import { DocenteService } from 'src/app/services/docente.service';
 import { JefeDptoService } from 'src/app/services/jefe-dpto.service';
+import { ToastAlertService } from 'src/app/services/toast-alert.service';
 
 @Component({
   selector: 'app-add-docente',
@@ -23,7 +24,7 @@ export class AddDocenteComponent implements OnInit {
               private departamentoService:DepartamentoService,
               private docenteService:DocenteService,
               private jefeDptoService:JefeDptoService,
-              private toastr:ToastrService) { }
+              private toastr:ToastAlertService) { }
 
   ngOnInit(): void {
     this.departamentoId=0;
@@ -45,7 +46,8 @@ export class AddDocenteComponent implements OnInit {
     docente.departamentoId=this.departamentoId;
     console.log(docente);
     this.docenteService.postDocente(docente).subscribe(res=>{
-      this.toastr.success(res.mensaje, 'Exito');
+
+      this.toastr.show(res.messageType,res.mensaje, res.messageType);
 
       console.log(res);
     },
